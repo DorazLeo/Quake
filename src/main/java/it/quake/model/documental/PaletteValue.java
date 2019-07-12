@@ -1,4 +1,4 @@
-package it.quake.model;
+package it.quake.model.documental;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -18,14 +18,13 @@ import java.util.List;
 public class PaletteValue {
 
     @Id
-    @NotNull
-    @Column(name = "id_main_item")
+    @Column(name = "id_palette_value")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id; //Identifier number of palette value
+    private Integer idPaletteValue; //Identifier number of palette value
 
     @NotNull
-    @Size(max = 45)
-    @Column(name = "name")
+    @Size(max = 100)
+    @Column(name = "value")
     private String value; // Value of palette value
 
     @Size(max = 25)
@@ -47,10 +46,12 @@ public class PaletteValue {
     @JsonBackReference
     private List<Palette> palettes = new ArrayList<>(); //palette's list of palette values
 
+    /*Constructors*/
+
     public PaletteValue() {
     }
 
-    public PaletteValue(@NotNull @Size(max = 45) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, @Size(max = 500) String visibilityCondition, Double price, List<Palette> palettes) {
+    public PaletteValue(@NotNull @Size(max = 100) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, @Size(max = 500) String visibilityCondition, Double price, List<Palette> palettes) {
         this.value = value;
         this.commercialCode = commercialCode;
         this.imagePath = imagePath;
@@ -59,8 +60,8 @@ public class PaletteValue {
         this.palettes = palettes;
     }
 
-    public PaletteValue(@NotNull int id, @NotNull @Size(max = 45) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, @Size(max = 500) String visibilityCondition, Double price, List<Palette> palettes) {
-        this.id = id;
+    public PaletteValue(@NotNull Integer idPaletteValue, @NotNull @Size(max = 100) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, @Size(max = 500) String visibilityCondition, Double price, List<Palette> palettes) {
+        this.idPaletteValue = idPaletteValue;
         this.value = value;
         this.commercialCode = commercialCode;
         this.imagePath = imagePath;
@@ -69,12 +70,12 @@ public class PaletteValue {
         this.palettes = palettes;
     }
 
-    public int getId() {
-        return id;
+    public Integer getIdPaletteValue() {
+        return idPaletteValue;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPaletteValue(Integer idPaletteValue) {
+        this.idPaletteValue = idPaletteValue;
     }
 
     public String getValue() {

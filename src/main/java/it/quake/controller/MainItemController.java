@@ -1,7 +1,7 @@
 package it.quake.controller;
 
-import it.quake.model.MainItem;
-import it.quake.repository.MainItemRepository;
+import it.quake.model.documental.MainItem;
+import it.quake.repository.documental.MainItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,4 +27,5 @@ public class MainItemController {
     public MainItem saveMainItem(@RequestBody MainItem mainItem) throws Exception {
         return mainItemRepository.save(mainItem);
     }
+
 }

@@ -1,4 +1,4 @@
-package it.quake.model;
+package it.quake.model.documental;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -21,10 +21,9 @@ import java.util.List;
 public class Palette {
 
     @Id
-    @NotNull
-    @Column(name = "id_main_item")
+    @Column(name = "id_palette")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id; //Identifier number of palette
+    private Integer idPalette; //Identifier number of palette
 
     @NotNull
     @Size(max = 45)
@@ -124,13 +123,13 @@ public class Palette {
     /**
      * Constructor used to update a palette
      *
-     * @param id                  Identifier number of palette
+     * @param idPalette                  Identifier number of palette
      * @param name                Name of palette
      * @param visibilityCondition Visibility condition of palette
      * @param category            Category of palette
      */
-    public Palette(@NotNull int id, @NotNull @Size(max = 45) String name, @Size(max = 500) String visibilityCondition, Category category) {
-        this.id = id;
+    public Palette(@NotNull Integer idPalette, @NotNull @Size(max = 45) String name, @Size(max = 500) String visibilityCondition, Category category) {
+        this.idPalette = idPalette;
         this.name = name;
         this.visibilityCondition = visibilityCondition;
         this.category = category;
@@ -145,17 +144,17 @@ public class Palette {
      *
      * @return Identifier number of palette
      */
-    public int getId() {
-        return id;
+    public Integer getIdPalette() {
+        return idPalette;
     }
 
     /**
      * Setter of palette's identifier number
      *
-     * @param id Identifier number of palette
+     * @param idPalette Identifier number of palette
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPalette(Integer idPalette) {
+        this.idPalette = idPalette;
     }
 
     /**

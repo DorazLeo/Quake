@@ -1,6 +1,5 @@
-package it.quake.model;
+package it.quake.model.documental;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -21,10 +20,9 @@ import java.util.List;
 public class MainItem {
 
     @Id
-    @NotNull
     @Column(name = "id_main_item")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id; //Identifier number of main item
+    private Integer idMainItem; //Identifier number of main item
 
     @NotNull
     @Size(max = 70)
@@ -53,26 +51,6 @@ public class MainItem {
     }
 
     /**
-     * Constructor used to save one main item without category and palettes
-     *
-     * @param name Name of main item
-     */
-    public MainItem(@NotNull @Size(max = 70) String name) {
-        this.name = name;
-    }
-
-    /**
-     * Constructor used to save one main item without palettes
-     *
-     * @param name     Name of main item
-     * @param category Category of main item
-     */
-    public MainItem(@NotNull @Size(max = 70) String name, Category category) {
-        this.name = name;
-        this.category = category;
-    }
-
-    /**
      * Constructor used to save one main item
      *
      * @param name        Name of main item
@@ -88,13 +66,13 @@ public class MainItem {
     /**
      * Constructor used to update one main item
      *
-     * @param id          Identifier number of main item
+     * @param idMainItem          Identifier number of main item
      * @param name        Name of main item
      * @param category    Category of main item
      * @param palettes List of palette for the main item
      */
-    public MainItem(@NotNull int id, @NotNull @Size(max = 70) String name, Category category, List<Palette> palettes) {
-        this.id = id;
+    public MainItem(@NotNull Integer idMainItem, @NotNull @Size(max = 70) String name, Category category, List<Palette> palettes) {
+        this.idMainItem = idMainItem;
         this.name = name;
         this.category = category;
         this.palettes = palettes;
@@ -107,17 +85,17 @@ public class MainItem {
      *
      * @return Identifier number of main item
      */
-    public int getId() {
-        return id;
+    public Integer getIdMainItem() {
+        return idMainItem;
     }
 
     /**
      * Setter for the identifier number of main item
      *
-     * @param id Identifier number of main item
+     * @param idMainItem Identifier number of main item
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdMainItem(Integer idMainItem) {
+        this.idMainItem = idMainItem;
     }
 
     /**

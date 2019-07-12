@@ -1,4 +1,4 @@
-package it.quake.model;
+package it.quake.model.documental;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,13 +14,12 @@ import javax.validation.constraints.Size;
 public class Category {
 
     @Id
-    @NotNull
     @Column(name = "id_category")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id; //Identifier number of category
+    private Integer idCategory; //Identifier number of category
 
     @NotNull
-    @Size(max = 100)
+    @Size(max = 1000)
     @Column(name = "name")
     private String name; //Name of category
 
@@ -37,18 +36,18 @@ public class Category {
      *
      * @param name Name of category
      */
-    public Category(@NotNull @Size(max = 100) String name) {
+    public Category(@NotNull @Size(max = 1000) String name) {
         this.name = name;
     }
 
     /**
      * Constructor used to update one category
      *
-     * @param id   Identifier number of category
+     * @param idCategory   Identifier number of category
      * @param name Name of category
      */
-    public Category(@NotNull int id, @NotNull @Size(max = 100) String name) {
-        this.id = id;
+    public Category(@NotNull Integer idCategory, @NotNull @Size(max = 1000) String name) {
+        this.idCategory = idCategory;
         this.name = name;
     }
 
@@ -59,17 +58,17 @@ public class Category {
      *
      * @return Identifier number of category
      */
-    public int getId() {
-        return id;
+    public Integer getIdCategory() {
+        return idCategory;
     }
 
     /**
      * Setter for the identifier number of category
      *
-     * @param id Identifier number of category
+     * @param idCategory Identifier number of category
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
     }
 
     /**
