@@ -45,6 +45,7 @@ public class MainItemController {
 
     /**
      * Method for delete the object passed with param.
+     *
      * @param mainItem Main item
      * @throws Exception
      */
