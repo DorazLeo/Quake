@@ -53,8 +53,8 @@ public class MainItem {
     /**
      * Constructor used to save one main item
      *
-     * @param name        Name of main item
-     * @param category    Category of main item
+     * @param name     Name of main item
+     * @param category Category of main item
      * @param palettes List of palette for the main item
      */
     public MainItem(@NotNull @Size(max = 70) String name, Category category, List<Palette> palettes) {
@@ -66,10 +66,10 @@ public class MainItem {
     /**
      * Constructor used to update one main item
      *
-     * @param idMainItem          Identifier number of main item
-     * @param name        Name of main item
-     * @param category    Category of main item
-     * @param palettes List of palette for the main item
+     * @param idMainItem Identifier number of main item
+     * @param name       Name of main item
+     * @param category   Category of main item
+     * @param palettes   List of palette for the main item
      */
     public MainItem(@NotNull Integer idMainItem, @NotNull @Size(max = 70) String name, Category category, List<Palette> palettes) {
         this.idMainItem = idMainItem;

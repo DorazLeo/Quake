@@ -79,7 +79,7 @@ public class Order {
         this.dateDelivery = dateDelivery;
     }
 
-    public Boolean getComplete() {
+    public Boolean isComplete() {
         return complete;
     }
 

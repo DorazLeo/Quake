@@ -27,12 +27,12 @@ public class MainItemOrdered {
     @Size(max = 70)
     @NotNull
     @Column(name = "name")
-    private String name;
+    private String name; //Name
 
     @Size(max = 1000)
     @NotNull
     @Column(name = "category")
-    private String category;
+    private String category; //Category
 
     @ManyToMany
     @JoinTable(
@@ -41,7 +41,9 @@ public class MainItemOrdered {
             inverseJoinColumns = @JoinColumn(name = "id_palette_ordered"))
     @JsonManagedReference
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<PaletteOrdered> paletteOrdereds = new ArrayList<>();
+    private List<PaletteOrdered> paletteOrdereds = new ArrayList<>(); //List of main item's palettes ordered from user
+
+    /*Constructor*/
 
     public MainItemOrdered() {
     }

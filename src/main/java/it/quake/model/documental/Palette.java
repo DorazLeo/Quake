@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * General class for configurable item
+ * General class for item's palette
  *
  * @author Christopher Leofreddi
  */
@@ -32,7 +32,7 @@ public class Palette {
 
     @Size(max = 500)
     @Column(name = "visibility_condition")
-    private String visibilityCondition; //Visibility condition of palette
+    private String visibilityCondition; //Visibility condition is a pattern string containing one or more condition for make visible the palette
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_category", nullable = false)
@@ -123,7 +123,7 @@ public class Palette {
     /**
      * Constructor used to update a palette
      *
-     * @param idPalette                  Identifier number of palette
+     * @param idPalette           Identifier number of palette
      * @param name                Name of palette
      * @param visibilityCondition Visibility condition of palette
      * @param category            Category of palette
@@ -213,6 +213,7 @@ public class Palette {
 
     /**
      * Getter of palette's values
+     *
      * @return Values of palette
      */
     public List<PaletteValue> getPaletteValues() {
@@ -221,6 +222,7 @@ public class Palette {
 
     /**
      * Setter of palette's values
+     *
      * @param paletteValues Values of palette
      */
     public void setPaletteValues(List<PaletteValue> paletteValues) {
@@ -229,6 +231,7 @@ public class Palette {
 
     /**
      * Getter of list item with the palette
+     *
      * @return List of main items
      */
     public List<MainItem> getMainItems() {
@@ -237,6 +240,7 @@ public class Palette {
 
     /**
      * Setter of list item with the palette
+     *
      * @param mainItems List of main items
      */
     public void setMainItems(List<MainItem> mainItems) {

@@ -1,38 +1,38 @@
 package it.quake.repository;
 
-import it.quake.model.Order;
+import it.quake.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * Interface for run query on "nation" table
+ * Interface for run query on "user" table
  *
  * @author Christopher Leofreddi
  */
 @Repository
-public interface OrderRepository extends CrudRepository<Order, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
     /**
      * Run query like Select * from...
      *
-     * @return List of nations
+     * @return List of Users
      */
-    public List<Order> findAll();
+    public List<User> findAll();
 
     /**
      * Run query like insert into ...
      *
-     * @param order Palette
-     * @return Nation saved
+     * @param user User
+     * @return User saved
      */
-    public Order save(Order order);
+    public User save(User user);
 
     /**
      * Run query like Delete from ...
      *
-     * @param order Nation to delete
+     * @param user User to delete
      */
-    public void delete(Order order);
+    public void delete(User user);
 }

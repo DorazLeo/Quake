@@ -43,8 +43,8 @@ public class Category {
     /**
      * Constructor used to update one category
      *
-     * @param idCategory   Identifier number of category
-     * @param name Name of category
+     * @param idCategory Identifier number of category
+     * @param name       Name of category
      */
     public Category(@NotNull Integer idCategory, @NotNull @Size(max = 1000) String name) {
         this.idCategory = idCategory;
