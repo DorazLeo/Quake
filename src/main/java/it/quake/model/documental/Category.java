@@ -23,6 +23,9 @@ public class Category {
     @Column(name = "name")
     private String name; //Name of category
 
+    @Column(name = "parent_id")
+    private Integer parentId; //Identifier number of category's parent
+
     /*Constructors*/
 
     /**
@@ -87,5 +90,23 @@ public class Category {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Getter of category's parent identifier number
+     *
+     * @return Category's parent identifier number
+     */
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    /**
+     * Setter of category's parent identifier number
+     *
+     * @param parentId Category's parent identifier number
+     */
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
     }
 }
