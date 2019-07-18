@@ -25,28 +25,29 @@ public class PaletteOrdered {
     @Size(max = 45)
     @NotNull
     @Column(name = "name")
-    private String name;
+    private String name; //Name of the palette
 
     @Size(max = 100)
     @NotNull
     @Column(name = "value")
-    private String value;
+    private String value; //Value of the palette
 
     @Size(max = 25)
     @Column(name = "commercial_code")
-    private String commercialCode;
+    private String commercialCode; //Commercial code generated
 
     @Column(name = "price")
-    private Double price;
+    private Double price; //Price of the palette
 
     @Size(max = 100)
     @Column(name = "image_path")
-    private String imagePath;
+    private String imagePath; //Image path of the palette
 
     @ManyToMany(mappedBy = "paletteOrdereds")
     @JsonBackReference
-    private List<MainItemOrdered> mainItemOrdereds = new ArrayList<>();
+    private List<MainItemOrdered> mainItemOrdereds = new ArrayList<>(); //Every main items orderd that have a this palette
 
+    /*Constructor*/
     public PaletteOrdered() {
     }
 
@@ -69,6 +70,7 @@ public class PaletteOrdered {
         this.mainItemOrdereds = mainItemOrdereds;
     }
 
+    /*Getters and Setters*/
     public Integer getIdPaletteOrdered() {
         return idPaletteOrdered;
     }

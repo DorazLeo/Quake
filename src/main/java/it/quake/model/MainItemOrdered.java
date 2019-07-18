@@ -61,6 +61,8 @@ public class MainItemOrdered {
         this.paletteOrdereds = paletteOrdereds;
     }
 
+    /*Getters and Setters*/
+
     public Integer getIdItemOrdered() {
         return idItemOrdered;
     }

@@ -44,33 +44,15 @@ public class MainItem {
 
     /* Constructors */
 
-    /**
-     * Default constructor
-     */
     public MainItem() {
     }
 
-    /**
-     * Constructor used to save one main item
-     *
-     * @param name     Name of main item
-     * @param category Category of main item
-     * @param palettes List of palette for the main item
-     */
     public MainItem(@NotNull @Size(max = 70) String name, Category category, List<Palette> palettes) {
         this.name = name;
         this.category = category;
         this.palettes = palettes;
     }
 
-    /**
-     * Constructor used to update one main item
-     *
-     * @param idMainItem Identifier number of main item
-     * @param name       Name of main item
-     * @param category   Category of main item
-     * @param palettes   List of palette for the main item
-     */
     public MainItem(@NotNull Integer idMainItem, @NotNull @Size(max = 70) String name, Category category, List<Palette> palettes) {
         this.idMainItem = idMainItem;
         this.name = name;
@@ -80,75 +62,34 @@ public class MainItem {
 
     /* Getters and Setters*/
 
-    /**
-     * Getter for the identifier number of main item
-     *
-     * @return Identifier number of main item
-     */
     public Integer getIdMainItem() {
         return idMainItem;
     }
 
-    /**
-     * Setter for the identifier number of main item
-     *
-     * @param idMainItem Identifier number of main item
-     */
     public void setIdMainItem(Integer idMainItem) {
         this.idMainItem = idMainItem;
     }
 
-    /**
-     * Getter for the name of main item
-     *
-     * @return Name of main item
-     */
     public String getName() {
         return name;
     }
 
-
-    /**
-     * Setter for the name of main item
-     *
-     * @param name Name of main item
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Getter for the category of main item
-     *
-     * @return Category of main item
-     */
     public Category getCategory() {
         return category;
     }
 
-    /**
-     * Setter for the category of main item
-     *
-     * @param category Category of main item
-     */
     public void setCategory(Category category) {
         this.category = category;
     }
 
-    /**
-     * Getter for the palettes's list of the main item
-     *
-     * @return List of palette for the main item
-     */
     public List<Palette> getPalettes() {
         return palettes;
     }
 
-    /**
-     * Setter for the palettes's list of the main item
-     *
-     * @param palettes List of palette for the main item
-     */
     public void setPalettes(List<Palette> palettes) {
         this.palettes = palettes;
     }

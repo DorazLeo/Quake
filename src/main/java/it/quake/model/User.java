@@ -17,55 +17,56 @@ public class User {
     @Id
     @Column(name = "id_user")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idUser; //Identifier number of user
+    private Integer idUser; //User's identifier number
 
     @Size(max = 30)
     @NotNull
     @Column(name = "name")
-    private String name;
+    private String name; //User's name
 
     @Size(max = 30)
     @NotNull
     @Column(name = "surname")
-    private String surname;
+    private String surname; //User's surname
 
     @Size(max = 255)
     @NotNull
     @Column(name = "email")
-    private String email;
+    private String email; //User's email for login
 
     @Size(max = 32)
     @NotNull
     @Column(name = "password")
-    private String password;
+    private String password; //User's password for login
 
     @Size(max = 16)
     @Column(name = "fiscal_code")
-    private String fiscalCode;
+    private String fiscalCode; //User's fiscal code
 
     @Size(max = 11)
     @Column(name = "vat_number")
-    private String vatNumber;
+    private String vatNumber; //User's vat number
 
     @Size(max = 100)
     @Column(name = "user_number")
-    private String userNumber;
+    private String userNumber; //User's number
 
     @Size(max = 30)
     @Column(name = "company")
-    private String company;
+    private String company; //User's company
 
     @Column(name = "create_date")
-    private Date createDate;
+    private Date createDate; //Date when the user is created
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_address", nullable = false)
-    private Address address;
+    private Address address; //User's address
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_role", nullable = false)
-    private Role role;
+    private Role role; //User's role
 
+    /*Constructors*/
     public User() {
     }
 
@@ -98,6 +99,7 @@ public class User {
         this.role = role;
     }
 
+    /*Getters and Setters*/
     public Integer getIdUser() {
         return idUser;
     }

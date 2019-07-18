@@ -35,4 +35,12 @@ public interface PaletteRepository extends CrudRepository<Palette, Long> {
      * @param palette Palette
      */
     public void delete(Palette palette);
+
+    /**
+     * Run query like Select * from...where id = ...
+     *
+     * @param idPalette Palette's identifier number
+     * @return Palette
+     */
+    public Palette findPaletteByIdPalette(int idPalette);
 }

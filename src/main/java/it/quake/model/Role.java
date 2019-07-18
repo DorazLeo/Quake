@@ -23,6 +23,8 @@ public class Role {
     @Column(name = "role")
     private String role; //Role of user
 
+    /*Constructor*/
+
     public Role() {
     }
 
@@ -34,6 +36,8 @@ public class Role {
         this.idRole = idRole;
         this.role = role;
     }
+
+    /*Getters and Setters*/
 
     public Integer getIdRole() {
         return idRole;
