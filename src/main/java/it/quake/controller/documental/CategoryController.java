@@ -1,4 +1,4 @@
-package it.quake.controller;
+package it.quake.controller.documental;
 
 import it.quake.model.documental.Category;
 import it.quake.repository.documental.CategoryRepository;
@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * Controller to expone services for categories
+ * @author Christopher Leofreddi
+ */
 @RequestMapping("category")
 @Controller
 public class CategoryController {

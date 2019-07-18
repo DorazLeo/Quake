@@ -1,4 +1,4 @@
-package it.quake.controller;
+package it.quake.controller.documental;
 
 import it.quake.model.documental.PaletteValue;
 import it.quake.repository.documental.PaletteValueRepository;
@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * Controller to expone services for palette values
+ * @author Christopher Leofreddi
+ */
 @RequestMapping("paletteValue")
 @Controller
 public class PaletteValueController {

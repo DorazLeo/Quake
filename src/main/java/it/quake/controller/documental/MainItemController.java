@@ -1,4 +1,4 @@
-package it.quake.controller;
+package it.quake.controller.documental;
 
 import it.quake.model.documental.MainItem;
 import it.quake.repository.documental.MainItemRepository;
@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * Controller to expone services for main items
+ * @author Christopher Leofreddi
+ */
 @RequestMapping("mainItem")
 @Controller
 public class MainItemController {
