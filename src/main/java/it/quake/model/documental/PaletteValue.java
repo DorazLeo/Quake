@@ -35,43 +35,44 @@ public class PaletteValue {
     @Column(name = "image_path")
     private String imagePath; //Immage path for palette value
 
-    @Size(max = 500)
-    @Column(name = "visibility_condition")
-    private String visibilityCondition; //Visibility condition is a pattern string containing one or more condition for make visible the palette's value
-
-    @Size(max = 500)
-    @Column(name = "unvisibility_condition")
-    private String unvisibilityCondition; //Unvisibility condition is a pattern string containing one or more condition for make visible the palette's value
-
     @Column(name = "price")
     private Double price; //Price of palette value
+
+    @ManyToMany
+    @JoinTable(
+            name = "palette_value_palette_value_disabled",
+            joinColumns = @JoinColumn(name = "id_palette_value"),
+            inverseJoinColumns = @JoinColumn(name = "id_palette_value_disabled"))
+    private List<Palette> paletteValuesDisabled = new ArrayList<>(); //List of palette values disabled when a palette value will be choosen
 
     @ManyToMany(mappedBy = "paletteValues")
     @JsonBackReference
     private List<Palette> palettes = new ArrayList<>(); //palette's list of palette values
+
+
 
     /*Constructors*/
 
     public PaletteValue() {
     }
 
-    public PaletteValue(@NotNull @Size(max = 100) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, @Size(max = 500) String visibilityCondition, @Size(max = 500) String unvisibilityCondition, Double price) {
+    public PaletteValue(@NotNull @Size(max = 100) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, Double price, List<Palette> paletteValuesDisabled, List<Palette> palettes) {
         this.value = value;
         this.commercialCode = commercialCode;
         this.imagePath = imagePath;
-        this.visibilityCondition = visibilityCondition;
-        this.unvisibilityCondition = unvisibilityCondition;
         this.price = price;
+        this.paletteValuesDisabled = paletteValuesDisabled;
+        this.palettes = palettes;
     }
 
-    public PaletteValue(@NotNull Integer idPaletteValue, @NotNull @Size(max = 100) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, @Size(max = 500) String visibilityCondition, @Size(max = 500) String unvisibilityCondition, Double price) {
+    public PaletteValue(Integer idPaletteValue, @NotNull @Size(max = 100) String value, @Size(max = 25) String commercialCode, @Size(max = 100) String imagePath, Double price, List<Palette> paletteValuesDisabled, List<Palette> palettes) {
         this.idPaletteValue = idPaletteValue;
         this.value = value;
         this.commercialCode = commercialCode;
         this.imagePath = imagePath;
-        this.visibilityCondition = visibilityCondition;
-        this.unvisibilityCondition = unvisibilityCondition;
         this.price = price;
+        this.paletteValuesDisabled = paletteValuesDisabled;
+        this.palettes = palettes;
     }
 
     /*Getters and Setters*/
@@ -108,28 +109,20 @@ public class PaletteValue {
         this.imagePath = imagePath;
     }
 
-    public String getVisibilityCondition() {
-        return visibilityCondition;
-    }
-
-    public void setVisibilityCondition(String visibilityCondition) {
-        this.visibilityCondition = visibilityCondition;
-    }
-
-    public String getUnvisibilityCondition() {
-        return unvisibilityCondition;
-    }
-
-    public void setUnvisibilityCondition(String unvisibilityCondition) {
-        this.unvisibilityCondition = unvisibilityCondition;
-    }
-
     public Double getPrice() {
         return price;
     }
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public List<Palette> getPaletteValuesDisabled() {
+        return paletteValuesDisabled;
+    }
+
+    public void setPaletteValuesDisabled(List<Palette> paletteValuesDisabled) {
+        this.paletteValuesDisabled = paletteValuesDisabled;
     }
 
     public List<Palette> getPalettes() {

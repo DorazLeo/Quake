@@ -1,5 +1,6 @@
 package it.quake.repository.documental;
 
+import it.quake.model.documental.Category;
 import it.quake.model.documental.Palette;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -43,4 +44,11 @@ public interface PaletteRepository extends CrudRepository<Palette, Long> {
      * @return Palette
      */
     public Palette findPaletteByIdPalette(int idPalette);
+
+    /**
+     *
+     * @param category
+     * @return
+     */
+    public List<Palette> findByCategory(Category category);
 }

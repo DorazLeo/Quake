@@ -30,10 +30,6 @@ public class Palette {
     @Column(name = "name")
     private String name; //Name of palette
 
-    @Size(max = 500)
-    @Column(name = "visibility_condition")
-    private String visibilityCondition; //Visibility condition is a pattern string containing one or more condition for make visible the palette
-
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_category", nullable = false)
     private Category category; //Category of palette
@@ -51,47 +47,35 @@ public class Palette {
     @JsonBackReference
     private List<MainItem> mainItems = new ArrayList<>(); //List of main item with that palette
 
+    @ManyToMany
+    @JoinTable(
+            name = "palette_palette_disabled",
+            joinColumns = @JoinColumn(name = "id_palette"),
+            inverseJoinColumns = @JoinColumn(name = "id_palette_disabled"))
+    @JsonBackReference
+    private List<Palette> palettesDisabled = new ArrayList<>(); //List of palette disactivated when a palette will be choosen
+
     /*Constructor*/
 
     public Palette() {
     }
 
-    public Palette(@NotNull @Size(max = 45) String name) {
+    public Palette(@NotNull @Size(max = 45) String name, Category category, List<PaletteValue> paletteValues, List<MainItem> mainItems, List<Palette> palettesDisabled) {
         this.name = name;
-    }
-
-    public Palette(@NotNull @Size(max = 45) String name, @Size(max = 500) String visibilityCondition) {
-        this.name = name;
-        this.visibilityCondition = visibilityCondition;
-    }
-
-    public Palette(@NotNull @Size(max = 45) String name, Category category) {
-        this.name = name;
-        this.category = category;
-    }
-
-    public Palette(@NotNull @Size(max = 45) String name, @Size(max = 500) String visibilityCondition, Category category) {
-        this.name = name;
-        this.visibilityCondition = visibilityCondition;
-        this.category = category;
-    }
-
-    public Palette(@NotNull @Size(max = 45) String name, @Size(max = 500) String visibilityCondition, Category category, List<PaletteValue> paletteValues, List<MainItem> mainItems) {
-        this.name = name;
-        this.visibilityCondition = visibilityCondition;
         this.category = category;
         this.paletteValues = paletteValues;
         this.mainItems = mainItems;
+        this.palettesDisabled = palettesDisabled;
     }
 
-    public Palette(@NotNull Integer idPalette, @NotNull @Size(max = 45) String name, @Size(max = 500) String visibilityCondition, Category category) {
+    public Palette(Integer idPalette, @NotNull @Size(max = 45) String name,Category category, List<PaletteValue> paletteValues, List<MainItem> mainItems, List<Palette> palettesDisabled) {
         this.idPalette = idPalette;
         this.name = name;
-        this.visibilityCondition = visibilityCondition;
         this.category = category;
+        this.paletteValues = paletteValues;
+        this.mainItems = mainItems;
+        this.palettesDisabled = palettesDisabled;
     }
-
-
 
     /*Getters and Setters*/
 
@@ -109,14 +93,6 @@ public class Palette {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getVisibilityCondition() {
-        return visibilityCondition;
-    }
-
-    public void setVisibilityCondition(String visibilityCondition) {
-        this.visibilityCondition = visibilityCondition;
     }
 
     public Category getCategory() {
@@ -141,5 +117,13 @@ public class Palette {
 
     public void setMainItems(List<MainItem> mainItems) {
         this.mainItems = mainItems;
+    }
+
+    public List<Palette> getPalettesDisabled() {
+        return palettesDisabled;
+    }
+
+    public void setPalettesDisabled(List<Palette> palettesDisabled) {
+        this.palettesDisabled = palettesDisabled;
     }
 }

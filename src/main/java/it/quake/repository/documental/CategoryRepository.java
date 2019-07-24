@@ -36,5 +36,11 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
      */
     public void delete(Category category);
 
+    /**
+     * @param name
+     * @return
+     */
+    public Category findByName(String name);
+
 
 }

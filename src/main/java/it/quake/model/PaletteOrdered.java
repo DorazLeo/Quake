@@ -1,6 +1,8 @@
 package it.quake.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import it.quake.model.documental.Palette;
+import it.quake.model.documental.PaletteValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,26 +24,13 @@ public class PaletteOrdered {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idPaletteOrdered; //Identifier number of palette ordered
 
-    @Size(max = 45)
-    @NotNull
-    @Column(name = "name")
-    private String name; //Name of the palette
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_palette", nullable = false)
+    private Palette palette;
 
-    @Size(max = 100)
-    @NotNull
-    @Column(name = "value")
-    private String value; //Value of the palette
-
-    @Size(max = 25)
-    @Column(name = "commercial_code")
-    private String commercialCode; //Commercial code generated
-
-    @Column(name = "price")
-    private Double price; //Price of the palette
-
-    @Size(max = 100)
-    @Column(name = "image_path")
-    private String imagePath; //Image path of the palette
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_palette_value", nullable = false)
+    private PaletteValue paletteValue;
 
     @ManyToMany(mappedBy = "paletteOrdereds")
     @JsonBackReference
@@ -51,26 +40,21 @@ public class PaletteOrdered {
     public PaletteOrdered() {
     }
 
-    public PaletteOrdered(@Size(max = 45) @NotNull String name, @Size(max = 100) @NotNull String value, @Size(max = 25) String commercialCode, Double price, @Size(max = 100) String imagePath, List<MainItemOrdered> mainItemOrdereds) {
-        this.name = name;
-        this.value = value;
-        this.commercialCode = commercialCode;
-        this.price = price;
-        this.imagePath = imagePath;
+    public PaletteOrdered(Palette palette, PaletteValue paletteValue, List<MainItemOrdered> mainItemOrdereds) {
+        this.palette = palette;
+        this.paletteValue = paletteValue;
         this.mainItemOrdereds = mainItemOrdereds;
     }
 
-    public PaletteOrdered(@NotNull Integer idPaletteOrdered, @Size(max = 45) @NotNull String name, @Size(max = 100) @NotNull String value, @Size(max = 25) String commercialCode, Double price, @Size(max = 100) String imagePath, List<MainItemOrdered> mainItemOrdereds) {
+    public PaletteOrdered(Integer idPaletteOrdered, Palette palette, PaletteValue paletteValue, List<MainItemOrdered> mainItemOrdereds) {
         this.idPaletteOrdered = idPaletteOrdered;
-        this.name = name;
-        this.value = value;
-        this.commercialCode = commercialCode;
-        this.price = price;
-        this.imagePath = imagePath;
+        this.palette = palette;
+        this.paletteValue = paletteValue;
         this.mainItemOrdereds = mainItemOrdereds;
     }
 
     /*Getters and Setters*/
+
     public Integer getIdPaletteOrdered() {
         return idPaletteOrdered;
     }
@@ -79,44 +63,20 @@ public class PaletteOrdered {
         this.idPaletteOrdered = idPaletteOrdered;
     }
 
-    public String getName() {
-        return name;
+    public Palette getPalette() {
+        return palette;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPalette(Palette palette) {
+        this.palette = palette;
     }
 
-    public String getValue() {
-        return value;
+    public PaletteValue getPaletteValue() {
+        return paletteValue;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getCommercialCode() {
-        return commercialCode;
-    }
-
-    public void setCommercialCode(String commercialCode) {
-        this.commercialCode = commercialCode;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setPaletteValue(PaletteValue paletteValue) {
+        this.paletteValue = paletteValue;
     }
 
     public List<MainItemOrdered> getMainItemOrdereds() {
